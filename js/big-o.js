@@ -14,4 +14,4 @@ let t1 = performance.now()
 addUPTo2(10000000000);
 let t2 = performance.now()
 
-console.log(`Time Elapsed: ${(t2-t1)/1000} sec(s)`)
+console.log(`Time Elapsed: ${(t2-t1)/1000} sec(s)`);
