@@ -45,3 +45,64 @@ function getEven(arr) {
 }
 
 //console.log(getEven([4, 2, 3, 6, 4, 5, 8]));
+
+function power(num, pow) {
+  if (pow === 0) return 1;
+  return num * power(num, pow - 1);
+}
+
+console.log(power(2, 3));
+
+const obj = {
+  stuff: "foo",
+  data: {
+    val: {
+      thing: {
+        info: "bar",
+        moreInfo: {
+          evenMoreInfo: {
+            weMadeIt: "baz",
+          },
+        },
+      },
+    },
+  },
+};
+
+const obj2 = {};
+
+console.log("" in obj2);
+
+function collectStrings2(obj) {
+  if (Object.keys(obj).length === 0) return;
+
+  const result = [];
+
+  function isString() {
+    if (Object.keys(obj).length === 0) return;
+
+    for (key in obj) {
+      if (typeof obj[key] === "string") {
+        result.push(obj[key]);
+      }
+    }
+  }
+}
+
+//Not created
+function collectStrings(obj) {
+  var stringsArr = [];
+  for (var key in obj) {
+    if (typeof obj[key] === "string") {
+      stringsArr.push(obj[key]);
+    } else if (typeof obj[key] === "object") {
+      console.log(stringsArr);
+      stringsArr = stringsArr.puch(collectStrings(obj[key]));
+      console.log(stringsArr);
+    }
+  }
+
+  return stringsArr;
+}
+
+const result2 = collectStrings(obj);
