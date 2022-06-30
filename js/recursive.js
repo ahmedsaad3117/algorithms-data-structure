@@ -97,8 +97,7 @@ function collectStrings(obj) {
       stringsArr.push(obj[key]);
     } else if (typeof obj[key] === "object") {
       console.log(stringsArr);
-      stringsArr = stringsArr.puch(collectStrings(obj[key]));
-      console.log(stringsArr);
+      stringsArr = stringsArr.concat(collectStrings(obj[key]));
     }
   }
 
@@ -106,3 +105,50 @@ function collectStrings(obj) {
 }
 
 const result2 = collectStrings(obj);
+
+let obj3 = {
+  num: 1,
+  test: [],
+  data: {
+    val: 4,
+    info: {
+      isRight: true,
+      random: 66,
+    },
+  },
+};
+
+function stringifyNumbers(obj2) {
+  for (key in obj2) {
+    if (typeof obj2[key] === "number") {
+      console.log(obj2[key].toString());
+      obj2[key] = obj2[key].toString();
+    } else if (typeof obj2[key] === "object") {
+      stringifyNumbers(obj2[key]);
+    }
+  }
+
+  return obj2;
+}
+
+function stringifyNumbersUdemy(obj) {
+  var newObj = {};
+  for (var key in obj) {
+    if (typeof obj[key] === 'number') {
+      newObj[key] = obj[key].toString();
+    } else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+      newObj[key] = stringifyNumbers(obj[key]);
+    } else {
+      newObj[key] = obj[key];
+    }
+  }
+  return newObj;
+}
+
+const result3 = stringifyNumbers(obj3);
+
+
+console.log(result3);
+
+const result4 = stringifyNumbersUdemy(obj3);
+console.log(result4);
