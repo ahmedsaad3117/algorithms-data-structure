@@ -1,3 +1,4 @@
+//Created
 function binarySearch(arr, num) {
   let left = 0;
   let right = arr.length - 1;
@@ -12,7 +13,7 @@ function binarySearch(arr, num) {
     } else {
       left = middle + 1;
     }
-  }
+ }
 
   return -1;
 }
@@ -20,3 +21,6 @@ function binarySearch(arr, num) {
 const result = binarySearch([1, 2, 5, 7, 8], 5);
 
 console.log(result);
+
+
+//O(log n)
