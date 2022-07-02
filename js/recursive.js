@@ -147,7 +147,6 @@ function stringifyNumbersUdemy(obj) {
 
 const result3 = stringifyNumbers(obj3);
 
-
 console.log(result3);
 
 const result4 = stringifyNumbersUdemy(obj3);
