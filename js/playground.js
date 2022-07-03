@@ -1,9 +1,7 @@
-const obj = new Object({name : 'janat'});
+function randomNumber() {
+    return Math.floor(Math.random() * 10);
+}
 
-obj.name = "ahmed";
+let arr = Array.apply(null, { length: 10 }).map(Function.call, randomNumber);
 
-const objClone = obj;
-
-obj.name = "khaled";
-
-console.log(objClone);
+console.log(arr);
