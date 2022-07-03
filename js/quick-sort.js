@@ -14,18 +14,18 @@ function pivot(arr, start = 0, end = arr.length - 1) {
   }
 
   swap(arr, start, swapIdx);
-  return swapIdx; 
+  return swapIdx;
 }
 
 function quickSort(arr, left = 0, right = arr.length - 1) {
   if (left < right) {
     let pivotIndex = pivot(arr, left, right);
     quickSort(arr, left, pivotIndex - 1);
-    quickSort(arr, pivotIndex + 1, right);
+    quickSort(arr, pivotIndex + 1, right); 
   }
   return arr;
 }
 
 const res = quickSort([3, 1, 2, 7, 4, 5, 9, 8]);
 
-console.log(res)
+console.log(res);
