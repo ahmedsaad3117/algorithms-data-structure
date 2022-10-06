@@ -13,14 +13,11 @@ function binarySearch(arr, num) {
     } else {
       left = middle + 1;
     }
- }
+  }
 
   return -1;
 }
 
 const result = binarySearch([1, 2, 5, 7, 8], 5);
 
-console.log(result);
-
-
-//O(log n)
+console.log(result);   //O(log n)

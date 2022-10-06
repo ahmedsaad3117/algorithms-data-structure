@@ -143,7 +143,7 @@ function stringifyNumbersUdemy(obj) {
     }
   }
   return newObj;
-}
+}ث
 
 const result3 = stringifyNumbers(obj3);
 console.log(result3);
