@@ -56,8 +56,16 @@ class SinglyLinkedList {
     return oldHead;
   }
 
-  unShift(val){
-    
+  unShift(val) {
+    const newNode = new Node(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = this.head;
+    }
+    let temp = this.head;
+    this.head = newNode;
+    this.head.next = temp;
+    this.length++;
   }
 }
 
@@ -70,7 +78,6 @@ list.push("Ahmed");
 //console.log(list);
 list.push("Saad");
 //list.pop();
-console.log(list.shift());
-console.log(list.shift());
-console.log(list.shift());
+list.unShift("frist");
+list.unShift("2nd");
 console.log(list);
