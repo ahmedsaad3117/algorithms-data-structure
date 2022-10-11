@@ -14,7 +14,6 @@ class SinglyLinkedList {
   //2nd level
   push(val) {
     const newNode = new Node(val);
-    console.log(newNode);
     if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
@@ -36,7 +35,29 @@ class SinglyLinkedList {
     }
     this.tail = newTail;
     this.tail.next = null;
-    this.length--
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return currnet;
+  }
+
+  shift() {
+    if (this.length === 0) return undefined;
+    let oldHead = this.head;
+
+    this.head = oldHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+
+    return oldHead;
+  }
+
+  unShift(val){
+    
   }
 }
 
@@ -44,9 +65,12 @@ const list = new SinglyLinkedList();
 // console.log(list);
 
 list.push("hi");
-console.log(list);
+//console.log(list);
 list.push("Ahmed");
-console.log(list);
+//console.log(list);
 list.push("Saad");
-list.pop();
+//list.pop();
+console.log(list.shift());
+console.log(list.shift());
+console.log(list.shift());
 console.log(list);
