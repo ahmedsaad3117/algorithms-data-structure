@@ -18,3 +18,4 @@ const p2 = new Point(10, 10);
 const dist = Point.distance(p1, p2);
 
 console.log(dist);
+ 
