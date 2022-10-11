@@ -61,11 +61,24 @@ class SinglyLinkedList {
     if (this.length === 0) {
       this.head = newNode;
       this.tail = this.head;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
     }
-    let temp = this.head;
-    this.head = newNode;
-    this.head.next = temp;
     this.length++;
+  }
+
+  get(num) {
+    if (num < 0 || num >= this.length) return null;
+
+    let counter = 0;
+    let current = this.head;
+
+    while (counter !== num) {
+      current = current.next;
+      counter++;
+    }
+    return current;
   }
 }
 
@@ -80,4 +93,6 @@ list.push("Saad");
 //list.pop();
 list.unShift("frist");
 list.unShift("2nd");
+
 console.log(list);
+console.log(list.get(3));
