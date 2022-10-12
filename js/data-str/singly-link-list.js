@@ -68,17 +68,41 @@ class SinglyLinkedList {
     this.length++;
   }
 
-  get(num) {
-    if (num < 0 || num >= this.length) return null;
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
 
     let counter = 0;
     let current = this.head;
 
-    while (counter !== num) {
+    while (counter !== index) {
       current = current.next;
       counter++;
     }
     return current;
+  }
+
+  set(index, value) {
+    const foundedNode = this.get(index);
+
+    if (index) {
+      foundedNode.val = value;
+      return true;
+    }
+
+    return false;
+  }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(value);
+    if (index === 0) return !!this.unShift(value);
+    const newNode = new Node(value);
+
+    const foundedNode = this.get(index - 1);
+    newNode.next = foundedNode.next;
+    foundedNode.next = newNode;
+    this.length++;
+    return true;
   }
 }
 
@@ -91,8 +115,10 @@ list.push("Ahmed");
 //console.log(list);
 list.push("Saad");
 //list.pop();
-list.unShift("frist");
-list.unShift("2nd");
+// list.unShift("frist");
+// list.unShift("2nd");
+//console.log(list.set(1, "khald"));
+console.log(list.insert(1, "khald"));
+console.log(list.get(1));
 
 console.log(list);
-console.log(list.get(3));
