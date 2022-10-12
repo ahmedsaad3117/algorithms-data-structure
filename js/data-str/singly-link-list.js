@@ -104,6 +104,35 @@ class SinglyLinkedList {
     this.length++;
     return true;
   }
+
+  delete(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+
+    const prev = this.get(index - 1);
+    const deleted = prev.next;
+    prev.next = deleted.next;
+    this.length--;
+    return deleted;
+  }
+
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    let next;
+    let prev = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -117,8 +146,11 @@ list.push("Saad");
 //list.pop();
 // list.unShift("frist");
 // list.unShift("2nd");
-//console.log(list.set(1, "khald"));
-console.log(list.insert(1, "khald"));
-console.log(list.get(1));
+// console.log(list.set(1, "khald"));
+// console.log(list.insert(1, "khald"));
+// console.log(list.get(1));
+// console.log(list.delete(1));
+
+console.log(list.reverse());
 
 console.log(list);
